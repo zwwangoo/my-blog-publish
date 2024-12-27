@@ -3,9 +3,9 @@
 	"name": "My Blog Publish",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "Demonstrates some of the capabilities of the Obsidian API.",
+	"description": "A plugin for Obsidian that allows you to publish notes directly to a GitHub repository. Configure your repository, branch, and GitHub Token, then publish your notes with a single click. Supports both creating new files and updating existing ones.",
 	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
+	"authorUrl": "https://zwwangoo.github.io",
 	"fundingUrl": "https://obsidian.md/pricing",
 	"isDesktopOnly": false
 }

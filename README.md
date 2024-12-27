@@ -1,94 +1,104 @@
-# Obsidian Sample Plugin
 
-This is a sample plugin for Obsidian (https://obsidian.md).
+# GitHub Publisher - Obsidian Plugin
 
-This project uses TypeScript to provide type checking and documentation.
-The repo depends on the latest plugin API (obsidian.d.ts) in TypeScript Definition format, which contains TSDoc comments describing what it does.
+## 简介
+GitHub Publisher 是一个 Obsidian 插件，允许你将笔记直接发布到 GitHub 仓库。通过简单的配置，你可以将选中的笔记发布到指定的 GitHub 仓库中，并自动处理文件的创建和更新。非常适合博客作者、开发者以及需要将 Obsidian 笔记与 GitHub 集成的用户。
 
-This sample plugin demonstrates some of the basic functionality the plugin API can do.
-- Adds a ribbon icon, which shows a Notice when clicked.
-- Adds a command "Open Sample Modal" which opens a Modal.
-- Adds a plugin setting tab to the settings page.
-- Registers a global click event and output 'click' to the console.
-- Registers a global interval which logs 'setInterval' to the console.
+## 功能
+- **配置 GitHub 仓库**：支持配置仓库地址、分支名称和 GitHub Token。
+- **一键发布笔记**：将当前笔记发布到配置的 GitHub 仓库中。
+- **自动处理文件更新**：如果文件已存在，自动更新文件；如果文件不存在，自动创建新文件。
 
-## First time developing plugins?
+## 安装
+### 通过 Obsidian 社区插件市场安装
+1. 打开 Obsidian 设置，进入“社区插件”选项卡。
+2. 点击“浏览”按钮，搜索“GitHub Publisher”。
+3. 找到插件后，点击“安装”按钮。
+4. 安装完成后，点击“启用”按钮。
 
-Quick starting guide for new plugin devs:
+### 手动安装
+1. 从 [GitHub 发布页面](https://github.com/your-repo/releases) 下载最新版本的插件文件（`.zip` 或 `.tar.gz`）。
+2. 解压文件，将解压后的文件夹复制到 Obsidian 的插件目录（`<vault>/.obsidian/plugins/`）。
+3. 重启 Obsidian，在“社区插件”中启用插件。
 
-- Check if [someone already developed a plugin for what you want](https://obsidian.md/plugins)! There might be an existing plugin similar enough that you can partner up with.
-- Make a copy of this repo as a template with the "Use this template" button (login to GitHub if you don't see it).
-- Clone your repo to a local development folder. For convenience, you can place this folder in your `.obsidian/plugins/your-plugin-name` folder.
-- Install NodeJS, then run `npm i` in the command line under your repo folder.
-- Run `npm run dev` to compile your plugin from `main.ts` to `main.js`.
-- Make changes to `main.ts` (or create new `.ts` files). Those changes should be automatically compiled into `main.js`.
-- Reload Obsidian to load the new version of your plugin.
-- Enable plugin in settings window.
-- For updates to the Obsidian API run `npm update` in the command line under your repo folder.
+## 使用方法
+1. **配置插件**：
+   - 打开 Obsidian 设置，进入“GitHub Publisher”选项卡。
+   - 配置以下信息：
+     - **GitHub Repository**：GitHub 仓库地址，格式为 `username/repo`。
+     - **GitHub Branch**：发布到的分支名称，默认为 `main`。
+     - **GitHub Token**：GitHub Personal Access Token，需具有 `repo` 权限。
+2. **发布笔记**：
+   - 打开要发布的笔记。
+   - 点击左侧边栏的“发布”按钮，或运行命令“Publish Note to GitHub”。
+   - 插件会将笔记发布到配置的 GitHub 仓库中。
 
-## Releasing new releases
+## 开发指南
+### 环境准备
+1. 确保已安装 Node.js 和 npm。
+2. 克隆本仓库到本地：
+   ```bash
+   git clone https://github.com/your-repo/obsidian-github-publisher.git
+   cd obsidian-github-publisher
+   ```
+3. 安装依赖：
+   ```bash
+   npm install
+   ```
 
-- Update your `manifest.json` with your new version number, such as `1.0.1`, and the minimum Obsidian version required for your latest release.
-- Update your `versions.json` file with `"new-plugin-version": "minimum-obsidian-version"` so older versions of Obsidian can download an older version of your plugin that's compatible.
-- Create new GitHub release using your new version number as the "Tag version". Use the exact version number, don't include a prefix `v`. See here for an example: https://github.com/obsidianmd/obsidian-sample-plugin/releases
-- Upload the files `manifest.json`, `main.js`, `styles.css` as binary attachments. Note: The manifest.json file must be in two places, first the root path of your repository and also in the release.
-- Publish the release.
+### 构建插件
+1. 修改代码后，运行以下命令构建插件：
+   ```bash
+   npm run build
+   ```
+2. 构建完成后，插件文件会生成在 `dist` 目录中。
 
-> You can simplify the version bump process by running `npm version patch`, `npm version minor` or `npm version major` after updating `minAppVersion` manually in `manifest.json`.
-> The command will bump version in `manifest.json` and `package.json`, and add the entry for the new version to `versions.json`
+### 调试插件
+1. 在 Obsidian 中启用开发者模式。
+2. 打开“开发者工具”（`Ctrl+Shift+I` 或 `Cmd+Option+I`），查看控制台日志。
+3. 使用 `console.log` 打印调试信息。
 
-## Adding your plugin to the community plugin list
+### 发布插件
+1. 更新 `manifest.json` 中的版本号。
+2. 提交代码并创建新的 GitHub 发布版本。
+3. 将插件提交到 Obsidian 社区插件市场（参考 [官方指南](https://docs.obsidian.md/Developer+Resources/Submitting+your+plugin)）。
 
-- Check the [plugin guidelines](https://docs.obsidian.md/Plugins/Releasing/Plugin+guidelines).
-- Publish an initial version.
-- Make sure you have a `README.md` file in the root of your repo.
-- Make a pull request at https://github.com/obsidianmd/obsidian-releases to add your plugin.
+## 配置项
+| 配置项            | 描述                                                                 |
+|-------------------|--------------------------------------------------------------------|
+| GitHub Repository | GitHub 仓库地址，格式为 `username/repo`。                           |
+| GitHub Branch     | 发布到的分支名称，默认为 `main`。                                   |
+| GitHub Token      | GitHub Personal Access Token，需具有 `repo` 权限。                  |
 
-## How to use
+## 常见问题
+### 1. 发布失败，提示 `403` 错误
+- 确保 GitHub Token 具有 `repo` 权限。
+- 检查仓库地址和分支名称是否正确。
 
-- Clone this repo.
-- Make sure your NodeJS is at least v16 (`node --version`).
-- `npm i` or `yarn` to install dependencies.
-- `npm run dev` to start compilation in watch mode.
+### 2. 发布失败，提示 `404` 错误
+- 确保仓库地址和分支名称正确。
+- 确保目标路径存在。
 
-## Manually installing the plugin
+### 3. 插件无法加载
+- 确保插件已正确安装并启用。
+- 检查 Obsidian 版本是否满足插件的最低要求。
 
-- Copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
+## 贡献
+欢迎提交 Issue 和 Pull Request！如果你有任何问题或建议，请通过 [GitHub Issues](https://github.com/your-repo/issues) 反馈。
 
-## Improve code quality with eslint (optional)
-- [ESLint](https://eslint.org/) is a tool that analyzes your code to quickly find problems. You can run ESLint against your plugin to find common bugs and ways to improve your code. 
-- To use eslint with this project, make sure to install eslint from terminal:
-  - `npm install -g eslint`
-- To use eslint to analyze this project use this command:
-  - `eslint main.ts`
-  - eslint will then create a report with suggestions for code improvement by file and line number.
-- If your source code is in a folder, such as `src`, you can use eslint with this command to analyze all files in that folder:
-  - `eslint .\src\`
+## 许可证
+本项目基于 [MIT 许可证](LICENSE) 开源。
 
-## Funding URL
+---
 
-You can include funding URLs where people who use your plugin can financially support it.
+### **总结**
+- **简介**：简要介绍插件的功能和用途。
+- **安装**：提供通过 Obsidian 社区插件市场和手动安装的步骤。
+- **使用方法**：详细说明如何配置插件和发布笔记。
+- **开发指南**：为开发者提供环境准备、构建、调试和发布的指南。
+- **配置项**：列出插件的配置项及其描述。
+- **常见问题**：解答用户可能遇到的问题。
+- **贡献**：鼓励用户提交 Issue 和 Pull Request。
+- **许可证**：说明项目的开源许可证。
 
-The simple way is to set the `fundingUrl` field to your link in your `manifest.json` file:
-
-```json
-{
-    "fundingUrl": "https://buymeacoffee.com"
-}
-```
-
-If you have multiple URLs, you can also do:
-
-```json
-{
-    "fundingUrl": {
-        "Buy Me a Coffee": "https://buymeacoffee.com",
-        "GitHub Sponsor": "https://github.com/sponsors",
-        "Patreon": "https://www.patreon.com/"
-    }
-}
-```
-
-## API Documentation
-
-See https://github.com/obsidianmd/obsidian-api
+你可以根据实际需求进一步调整内容。如果有其他问题或需要补充，欢迎告诉我！😊
