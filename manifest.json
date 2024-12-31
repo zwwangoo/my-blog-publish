@@ -6,6 +6,5 @@
 	"description": "A plugin for Obsidian that allows you to publish notes directly to a GitHub repository. Configure your repository, branch, and GitHub Token, then publish your notes with a single click. Supports both creating new files and updating existing ones.",
 	"author": "Obsidian",
 	"authorUrl": "https://zwwangoo.github.io",
-	"fundingUrl": "https://obsidian.md/pricing",
 	"isDesktopOnly": false
 }

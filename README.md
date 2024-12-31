@@ -17,7 +17,7 @@ GitHub Publisher 是一个 Obsidian 插件，允许你将笔记直接发布到 G
 4. 安装完成后，点击“启用”按钮。
 
 ### 手动安装
-1. 从 [GitHub 发布页面](https://github.com/your-repo/releases) 下载最新版本的插件文件（`.zip` 或 `.tar.gz`）。
+1. 从 [GitHub 发布页面](https://github.com/zwwangoo/my-blog-publish/releases) 下载最新版本的插件文件（`.zip` 或 `.tar.gz`）。
 2. 解压文件，将解压后的文件夹复制到 Obsidian 的插件目录（`<vault>/.obsidian/plugins/`）。
 3. 重启 Obsidian，在“社区插件”中启用插件。
 
@@ -38,7 +38,7 @@ GitHub Publisher 是一个 Obsidian 插件，允许你将笔记直接发布到 G
 1. 确保已安装 Node.js 和 npm。
 2. 克隆本仓库到本地：
    ```bash
-   git clone https://github.com/your-repo/obsidian-github-publisher.git
+   git clone https://github.com/zwwangoo/my-blog-publish/obsidian-github-publisher.git
    cd obsidian-github-publisher
    ```
 3. 安装依赖：
@@ -61,7 +61,7 @@ GitHub Publisher 是一个 Obsidian 插件，允许你将笔记直接发布到 G
 ### 发布插件
 1. 更新 `manifest.json` 中的版本号。
 2. 提交代码并创建新的 GitHub 发布版本。
-3. 将插件提交到 Obsidian 社区插件市场（参考 [官方指南](https://docs.obsidian.md/Developer+Resources/Submitting+your+plugin)）。
+3. 将插件提交到 Obsidian 社区插件市场（参考 [官方指南](https://docs.obsidian.md/Plugins/Releasing/Submit+your+plugin)）。
 
 ## 配置项
 | 配置项            | 描述                                                                 |
@@ -84,7 +84,7 @@ GitHub Publisher 是一个 Obsidian 插件，允许你将笔记直接发布到 G
 - 检查 Obsidian 版本是否满足插件的最低要求。
 
 ## 贡献
-欢迎提交 Issue 和 Pull Request！如果你有任何问题或建议，请通过 [GitHub Issues](https://github.com/your-repo/issues) 反馈。
+欢迎提交 Issue 和 Pull Request！如果你有任何问题或建议，请通过 [GitHub Issues](https://github.com/zwwangoo/my-blog-publish/issues) 反馈。
 
 ## 许可证
 本项目基于 [MIT 许可证](LICENSE) 开源。
